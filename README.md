@@ -16,6 +16,6 @@ Vue.js 是一套构建用户界面的渐进式框架。我们可以使用简单�
 
 ## 导航
 
-1. [组件间通信](#communication)
+1. [组件的接口](#interface)
 
-## <a id="communication">组件间通信</a>
+## <a id="interface">组件的接口</a>
