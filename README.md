@@ -16,6 +16,20 @@ Vue.js 是一套构建用户界面的渐进式框架。我们可以使用简单�
 
 ## 导航
 
-1. [组件的接口](#interface)
+1. [构成组件](#part)
+2. [组件状态传递](#communication)
+3. [业务组件与可复用组件](#businessAndReusable)
+4. [自由组合](#freeCombination)
+5. [结构扁平化](#flattingConstruction)
+6. [数据扁平化](#flattingData)
+7. [双向绑定](#bidirectionalBindings)
+8. [项目骨架](#skeleton)
+9. [其他细节](#other)
 
-## <a id="interface">组件的接口</a>
+## <a id="part">构成组件</a>
+
+组件，是一个具有一定功能，且不同组件间功能相对独立的模块。组件可以是一个按钮、一个输入框、一个视频播放器等等。
+
+可复用组件，高内聚、低耦合。
+
+## <a id="communication">组件状态传递</a>
