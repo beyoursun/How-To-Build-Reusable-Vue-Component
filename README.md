@@ -32,4 +32,42 @@ Vue.js 是一套构建用户界面的渐进式框架。我们可以使用简单�
 
 可复用组件，高内聚、低耦合。
 
+那么，什么构成了组件呢。以浏览器的原生组件 video 为例，分析一下组件的组成部分。
+
+```html
+<video
+  src="example.mp4"
+  width="320"
+  height="240"
+  onload="loadHandler"
+  onerror="errorHandler">
+  Your browser does not support the video tag.
+</video>
+```
+
+实例中能看出，组件由*状态*、*事件*和嵌套的*片断*组成。状态，是组件当前的某些数据或属性，如 video 中的 src、width 和 height。事件，是组件在特定时机触发一些操作的行为，如 video 在视频资源加载成果或失败时会触发对应的事件来执行处理。片段，指的是嵌套在组件标签中的内容，该内容会在某些条件下展现出来，如在浏览器不支持 video 标签时显示提示信息。
+
+在 Vue 组件中，状态称为 props，事件称为 events，片段称为 slots。组件的构成部分也可以理解为组件对外的接口。良好的可复用组件应当定义一个清晰的公开接口。
+
+- **Props** 允许外部环境传递数据给组件
+- **Events** 允许组件触发外部环境的副作用
+- **Slots** 允许外部环境将额外的内容组合在组件中。
+
+使用 vue 对 video 组件做拓展，构造出一个支持播放列表的组件 myVideo：
+
+```html
+<my-video
+  :playlist="playlist"
+  width="320"
+  height="240"
+  @load="loadHandler"
+  @error="errorHandler"
+  @playnext="nextHandler"
+  @playprev="prevHandler">
+  <div slot="endpage"></div>
+</my-video>
+```
+
+myVideo 组件有着清晰的接口，接收播放列表、播放器宽高等状态，能够触发加载成功或失败、播放上一个或下一个的事件，并且能自定义播放结束时的尾页，可用于插入广告或显示下一个视频信息。
+
 ## <a id="communication">组件状态传递</a>
