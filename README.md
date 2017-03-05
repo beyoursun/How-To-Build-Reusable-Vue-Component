@@ -281,3 +281,26 @@ TableHeader 组件和 TableBody 组件依赖当前的上下文，即 TableWrappe
 在一个庞大的项目当中，组件间的引用关系会更复杂一些。当单页应用有多个路由，每个路由组件过重，需要拆分模块时。组件结构会变成下图这样。
 
 ![](1.jpg)
+
+按照这个思路构建我们的项目，最后的源代码目录结构（不包括构建流程文件）：
+
+```
+│  App.vue          # 顶级组件
+│  client-entry.js  # 前端入口文件
+│  config.js        # 配置文件
+│  main.js          # 主入口文件
+│  
+├─api               # 接口 API
+├─assets            # 静态资源
+├─components        # 通用组件
+├─directives        # 自定义指令
+├─mock              # Mock 数据
+├─plugins           # 自定义插件
+├─router            # 路由配置
+├─sections          # 业务组件
+├─store             # Vuex Store
+├─utils             # 工具模块
+└─views             # 路由页面组件
+```
+
+在通用组件中还可以区分容器组件、布局组件和其他功能性组件等。
