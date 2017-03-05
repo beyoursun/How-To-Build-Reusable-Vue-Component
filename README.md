@@ -123,7 +123,7 @@ myVideo 组件有着清晰的接口，接收播放列表、播放器宽高等状
 <st-recommend></st-recommend>
 <st-qq-movie></st-qq-movie>
 <st-sohu-series></st-sohu-series>
-...
+```
 
 ## 上下文无关原则
 
