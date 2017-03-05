@@ -109,6 +109,23 @@ myVideo 组件有着清晰的接口，接收播放列表、播放器宽高等状
 
 ## 上下文无关原则
 
+还是上面那句话，可复用组件应尽量减少对外部条件的依赖。没有特别需求且单个组件不至于过重的的前提下，不要把一个有独立功能的组件拆分成若干个小组件。
+
+```html
+<table-wrapper>	        
+  <table-header slot="header" :headers="exampleHeader"></table-header>	        
+  <table-body slot="body" :body-content="exampleContents"></table-body>	      
+</table-wrapper>
+```
+
+TableHeader 组件和 TableBody 组件依赖当前的上下文，即 TableWrapper 组件嵌套的环境下。你可以有更好的解决办法：
+
+···html
+<xl-table :headers="exampleHeader" :body-content="exampleContents"></xl-table>
+```
+
+上下文无关原则能够降低组件使用的门槛。
+
 ## 数据扁平化
 
 定义组件接口时，尽量不要将整个对象作为一个 prop 传进来。
