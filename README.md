@@ -72,6 +72,56 @@ myVideo 组件有着清晰的接口，接收播放列表、播放器宽高等状
 
 ## <a id="communication">组件状态传递</a>
 
+## 使用自定义事件来实现数据的双向绑定
+
+有时候，对于一个状态，需要同时从组件内部和组件外部去改变它。
+
+例如，模态框的显示和隐藏，父组件可以初始化模态框的显示，模态框组件内部的关闭按钮可以让其隐藏。一个好的办法是，使用自定义事件改变父组件中的值：
+
+```html
+<modal :show="show" @input="show = argument[0]"></modal>
+```
+
+```html
+<!-- Modal.vue -->
+
+<template>
+  <div v-show="show">
+    <h3>标题</h3>
+    <p>内容</p>
+    <a href="javascript:;" @click="close">关闭</a>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: {
+      show: String
+    },
+    methods: {
+      close () {
+        this.$emit('input', false)
+      }
+    }
+  }
+</script>
+```
+
+用户点击关闭按钮时，Modal 组件发送一个 input 自定义事件给父组件。父组件监听到 input 事件时，把 show 设置为事件回调的第一个参数。
+
+可以使用语法糖 v-model：
+
+```html
+<modal v-model="show"></model>
+```
+
+要让组件的 v-model 生效，它必须：
+
+- 接受一个 value 属性
+- 在有新的 value 时触发 input 事件
+
+由于每个组件的 input 事件只能用来对一个数据进行双向绑定，所以当存在多个需要向上同步的数据时，请不要使用 v-model，请使用多个自定义事件，并在父组件中同步新的值。
+
 ## 使用自定义 watcher 优化 DOM 操作
 
 在开发中，有些逻辑无法使用数据绑定，无法避免需要对 DOM 的操作。例如，视频的播放需要同步 Video 对象的播放操作及组件内的播放状态。可以使用自定义 watcher 来优化 DOM 的操作。
@@ -87,33 +137,33 @@ myVideo 组件有着清晰的接口，接收播放列表、播放器宽高等状
 </template>
 
 <script>
-export default {
-  props: {
-    src: String // 播放地址
-  },
-  data () {
-    return {
-      playing: false // 是否正在播放
-    }
-  },
-  watch: {
-    // 播放状态变化时，执行对应操作
-    playing (val) {
-      let video = this.$refs.video
-      if (val) {
-        video.play();
-      } else {
-        video.pause();
+  export default {
+    props: {
+      src: String // 播放地址
+    },
+    data () {
+      return {
+        playing: false // 是否正在播放
+      }
+    },
+    watch: {
+      // 播放状态变化时，执行对应操作
+      playing (val) {
+        let video = this.$refs.video
+        if (val) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+    },
+    method: {
+      // 切换播放状态
+      togglePlay () {
+        this.playing = !this.playing
       }
     }
-  },
-  method: {
-    // 切换播放状态
-    togglePlay () {
-      this.playing = !this.playing
-    }
   }
-}
 </script>
 ```
 
