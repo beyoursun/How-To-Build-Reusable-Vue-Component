@@ -73,7 +73,7 @@ myVideo 组件有着清晰的接口，接收播放列表、播放器宽高等状
 
 在 Vue.js 中，父子组件的关系可以总结为 props down, events up 。父组件通过 props 向下传递数据给子组件，子组件通过 events 给父组件发送消息。看看它们是怎么工作的。
 
-![props down, events up](0.png)
+![](0.png)
 
 ## 业务无关原则
 
