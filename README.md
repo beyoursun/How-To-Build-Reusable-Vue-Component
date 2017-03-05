@@ -77,14 +77,12 @@ myVideo 组件有着清晰的接口，接收播放列表、播放器宽高等状
 在开发中，有些逻辑无法使用数据绑定，无法避免需要对 DOM 的操作。例如，视频的播放需要同步 Video 对象的播放操作及组件内的播放状态。可以使用自定义 watcher 来优化 DOM 的操作。
 
 ```html
+<!-- MyVideo.vue -->
+
 <template>
   <div>
     <video ref="video" src="src"></video>
-    <a
-      href="javascript:;"
-      @click="togglePlay">
-      {{ playing ? '暂停' : '播放' }}
-    </a>
+    <a href="javascript:;" @click="togglePlay">{{ playing ? '暂停' : '播放' }}</a>
   </div>
 </template>
 
