@@ -138,7 +138,7 @@ myVideo 组件有着清晰的接口，接收播放列表、播放器宽高等状
 
 TableHeader 组件和 TableBody 组件依赖当前的上下文，即 TableWrapper 组件嵌套的环境下。你可以有更好的解决办法：
 
-···html
+```html
 <xl-table :headers="exampleHeader" :body-content="exampleContents"></xl-table>
 ```
 
@@ -148,7 +148,7 @@ TableHeader 组件和 TableBody 组件依赖当前的上下文，即 TableWrappe
 
 定义组件接口时，尽量不要将整个对象作为一个 prop 传进来。
 
-```
+```html
 <!-- 反例 -->
 <card :item="{ title: item.name, description: item.desc, poster: item.img }></card>
 ```
@@ -159,7 +159,7 @@ TableHeader 组件和 TableBody 组件依赖当前的上下文，即 TableWrappe
 - props 校验方便
 - 当服务端返回的对象中的 key 名称与组件接口不一样时，不需要重新构造一个对象
 
-```
+```html
 <card
   :title="item.name"
   :description="item.desc"
