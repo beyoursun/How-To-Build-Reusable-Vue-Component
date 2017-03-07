@@ -1,4 +1,4 @@
-# 关于 Vue 组件，你需要知道的一些事
+# 打造 Vue.js 可复用组件
 
 <details>
 You Need Something About Vue Component.
