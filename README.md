@@ -19,9 +19,6 @@ You Need Something About Vue Component.
 - [构成组件](#sec1)
 - [组件间通信](#sec2)
 - [业务无关原则](#sec3)
-  - [命名](#sec3-1)
-  - [业务数据无关](#sec3-2)
-  - [组件职责](#sec3-3)
 - [命名空间](#sec4)
 - [上下文无关原则](#sec5)
 - [数据扁平化](#sec6)
@@ -311,3 +308,25 @@ TableHeader 组件和 TableBody 组件依赖当前的上下文，即 TableWrappe
 在通用组件中还可以区分容器组件、布局组件和其他功能性组件等。
 
 ## <a id="sec10">代码书写规范</a>
+
+### 缩进
+
+组件或元素的特性小于三个时，代码写在一行里：
+
+```html
+<my-component :prop-a="a" :prop-b="b"></my-component>
+```
+
+组件或元素的特性大于等于三个时，代码分行写，一个特性写一行：
+
+```html
+<my-component
+  :prop-a="a"
+  :prop-b="b"
+  :prop-c="c">
+</my-component>
+```
+
+### 事件绑定
+
+
