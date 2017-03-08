@@ -4,7 +4,7 @@
 You Need Something About Vue Component.
 </details>
 
-![Vue Component](./component.png)
+![Vue Component](img/component.png)
 
 > Vue.js 是一套构建用户界面的渐进式框架。我们可以使用简单的 API 来实现响应式的数据绑定和组合的视图组件。
 
@@ -75,7 +75,7 @@ myVideo 组件有着清晰的接口，接收播放列表、播放器宽高等状
 
 在 Vue.js 中，父子组件的关系可以总结为 props down, events up 。父组件通过 props 向下传递数据给子组件，子组件通过 events 给父组件发送消息。看看它们是怎么工作的。
 
-![](0.png)
+![](img/0.png)
 
 ## <a id="sec3">业务无关原则</a>
 
@@ -278,11 +278,11 @@ TableHeader 组件和 TableBody 组件依赖当前的上下文，即 TableWrappe
 
 当组件足够简单时，就可以在一个更大的业务组件中去自由组合这些组件，实现我们的业务功能。因此，理想情况下，组件的引用层级，只有两级。业务组件引用通用组件。
 
-![](0.jpg)
+![](img/0.jpg)
 
 在一个庞大的项目当中，组件间的引用关系会更复杂一些。当单页应用有多个路由，每个路由组件过重，需要拆分模块时。组件结构会变成下图这样。
 
-![](1.jpg)
+![](img/1.jpg)
 
 按照这个思路构建我们的项目，最后的源代码目录结构（不包括构建流程文件）：
 
