@@ -25,7 +25,6 @@ How to build Vue.js reusable component.
 - [使用自定义事件实现数据的双向绑定](#sec7)
 - [使用自定义 watcher 优化 DOM 操作](#sec8)
 - [结构扁平化](#sec9)
-- [代码书写规范](#sec10)
 
 ## <a id="sec1">构成组件</a>
 
@@ -306,27 +305,3 @@ TableHeader 组件和 TableBody 组件依赖当前的上下文，即 TableWrappe
 ```
 
 在通用组件中还可以区分容器组件、布局组件和其他功能性组件等。
-
-## <a id="sec10">代码书写规范</a>
-
-### 缩进
-
-组件或元素的特性小于三个时，代码写在一行里：
-
-```html
-<my-component :prop-a="a" :prop-b="b"></my-component>
-```
-
-组件或元素的特性大于等于三个时，代码分行写，一个特性写一行：
-
-```html
-<my-component
-  :prop-a="a"
-  :prop-b="b"
-  :prop-c="c">
-</my-component>
-```
-
-### 事件绑定
-
-
